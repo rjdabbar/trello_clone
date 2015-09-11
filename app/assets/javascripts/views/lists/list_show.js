@@ -11,7 +11,10 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
     this.$el.html(this.template({list: this.model}));
     console.log(this.collection);
     this.collection.each(function (card){
-      var cardView = new TrelloClone.Views.CardShow({model: card});
+      var cardView = new TrelloClone.Views.CardShow({
+        model: card,
+        collection: card.items()
+      });
       this.addSubview(".list-cards", cardView);
     }.bind(this))
     return this;
