@@ -5,7 +5,6 @@ TrelloClone.Models.Board = Backbone.Model.extend({
     if (this._lists === undefined) {
       this._lists = new TrelloClone.Collections.Lists([], {board: this})
     };
-
     return this._lists;
   },
 

@@ -21,6 +21,6 @@ TrelloClone.Views.BoardIndex = Backbone.CompositeView.extend({
   show: function (e) {
     e.preventDefault();
     var board = this.collection.getOrFetch($(e.currentTarget).data("id"));
-    Backbone.history.navigate("api/boards/" + board.id, { trigger: true });
+    Backbone.history.navigate("boards/" + board.id, { trigger: true });
   }
 })
