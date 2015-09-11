@@ -14,5 +14,9 @@ TrelloClone.Models.Card = Backbone.Model.extend({
       delete payload.items
     };
     return payload;
+  },
+
+  toJSON: function () {
+    return { card: _.clone(this.attributes) };
   }
 })
