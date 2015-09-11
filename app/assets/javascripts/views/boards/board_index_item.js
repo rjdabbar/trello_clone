@@ -9,13 +9,10 @@ TrelloClone.Views.BoardIndexItem = Backbone.View.extend({
     };
   },
 
-
   initialize: function () {},
 
   render: function () {
     this.$el.html(this.template({board: this.model}))
     return this;
   },
-
-
 })

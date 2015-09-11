@@ -60,7 +60,27 @@ li.board-item {
   text-align: center;
 }
 
+div.board {
+  margin: 20px 50px;
+}
+
 li.board-item:hover {
   background: green;
   cursor: pointer;
+}
+
+ul.board-lists {
+  margin: 30px auto;
+  white-space: nowrap;
+}
+
+li.list{
+  float: left;
+  margin: 0 10px;
+  position: relative;
+  width: 300px;
+  display: inline-block;
+  height: 400px;
+  border: 1px solid black;
+  background: #eee;
 }
