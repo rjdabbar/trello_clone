@@ -1,5 +1,5 @@
 TrelloClone.Models.Card = Backbone.Model.extend({
-  urlRoot: "api/boards",
+  urlRoot: "api/cards",
 
   items: function () {
     if (this._items === undefined) {

@@ -8,7 +8,8 @@ TrelloClone.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "root",
     "boards/new": "newBoard",
-    "boards/:id": "showBoard"
+    "boards/:id": "showBoard",
+    "boards/:id/lists/new": "newList",
   },
 
   root: function () {
@@ -34,6 +35,15 @@ TrelloClone.Routers.Router = Backbone.Router.extend({
       collection: board.lists()
     });
     this._swapView(view);
+  },
+
+  newList: function (boardId) {
+    var board = this.boards.getOrFetch(boardId);
+    var list = new TrelloClone.Models.List({board_id: boardId, ord: board.lists().length})
+    var view = new TrelloClone.Views.ListForm({
+      model: list
+    });
+    this._modalView(view);
   },
 
   _swapView: function (view) {

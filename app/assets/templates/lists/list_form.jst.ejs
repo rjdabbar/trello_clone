@@ -1,0 +1,13 @@
+<div class="screen">
+
+</div>
+<div class="modal">
+  <form class="list" action="index.html" method="post">
+    <label for="list_title">Title: </label>
+    <input id="list_title"
+           type="text"
+           name="list[title]"
+           value="<%= list.escape("title") %>">
+    <button class="submit">Create List</button>
+  </form>
+</div>
