@@ -9,9 +9,7 @@ window.TrelloClone = {
     var lists = new TrelloClone.Collections.Lists();
     new TrelloClone.Routers.Router({
       $rootEl: $("#main"),
-      boards: boards,
-      lists: lists,
-      cards: cards
+      boards: boards
     })
     Backbone.history.start();
   }
