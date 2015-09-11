@@ -7,7 +7,7 @@ Backbone.Collection.prototype.getOrFetch = function (id) {
   } else {
     model = new this.model({id: id});
     this.add(model);
-    model.save({}, {
+    model.fetch({
       error: function (model, response, options) {
         this.remove(model);
       }.bind(this)

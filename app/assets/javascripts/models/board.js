@@ -9,6 +9,7 @@ TrelloClone.Models.Board = Backbone.Model.extend({
   },
 
   parse: function (payload) {
+    debugger
     if (payload.lists) {
       this.lists().set(payload.lists);
       delete payload.lists;
