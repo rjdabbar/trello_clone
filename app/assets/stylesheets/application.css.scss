@@ -56,9 +56,10 @@ li.board-item {
   background: grey;
   color: white;
   margin-left: 20px;
+  margin-top: 10px;
   width: 200px;
   height: 100px;
-  text-align: center;
+  border-radius: 5px;
 }
 
 li.new-board {
@@ -67,6 +68,11 @@ li.new-board {
 
 div.board {
   margin: 20px 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 li.board-item:hover {
@@ -76,8 +82,10 @@ li.board-item:hover {
 
 ul.board-lists {
   margin: 30px auto;
-  white-space: nowrap;
-  overflow: hidden;
+  width: 2000px;
+  overflow: scroll;
+  flex-wrap: nowrap;
+  overflow: auto;
 }
 
 li.list{
@@ -85,7 +93,7 @@ li.list{
   margin: 0 10px;
   position: relative;
   width: 300px;
-  display: block;
+  display: inline-block;
   border: 1px solid black;
   background: #eee;
   border-radius: 5px;
@@ -96,9 +104,12 @@ li.new-list{
 }
 
 li.card {
-  border: 1px grey solid;
+  border: 1px white solid;
   width: 280px;
+  background: white;
+  border-radius: 5px;
   margin: 10px auto;
+  padding: 5px;
 }
 
 form.board {
@@ -109,6 +120,11 @@ form.board {
 form.list {
   margin: 50px;
   text-align: center;
+}
+
+li.new-card:hover {
+  cursor: pointer;
+  background: #bbb;
 }
 
 

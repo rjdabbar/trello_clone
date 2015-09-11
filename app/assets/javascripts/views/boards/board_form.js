@@ -22,7 +22,6 @@ TrelloClone.Views.BoardForm = Backbone.View.extend({
     e.preventDefault()
     var formData = $(e.currentTarget).serializeJSON();
     var board = new TrelloClone.Models.Board();
-    debugger
     board.save(formData.board, {
       success: function (model, response, options) {
         Backbone.history.navigate("boards/" + model.id, { trigger: true });
