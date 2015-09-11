@@ -13,6 +13,7 @@ window.TrelloClone = {
       lists: lists,
       cards: cards
     })
+    Backbone.history.start();
   }
 };
 
