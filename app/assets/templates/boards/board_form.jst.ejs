@@ -1,13 +1,11 @@
-<div class="screen">
-
-</div>
-<div class="modal">
-  <form class="board" action="index.html" method="post">
-    <label for="board_title">Title: </label>
-    <input id="board_title"
-           type="text"
-           name="board[title]"
-           value="<%= board.escape("title") %>">
-    <button class="submit">Create Board</button>
-  </form>
-</div>
+<h1>Create Board</h1>
+<button class="close-window">X</button>
+<hr>
+<form class="board-new" action="index.html" method="post">
+  <label for="board_title">Title: </label>
+  <input id="board_title"
+         type="text"
+         name="board[title]"
+         value="<%= board.escape("title") %>">
+  <button class="submit">Create</button>
+</form>

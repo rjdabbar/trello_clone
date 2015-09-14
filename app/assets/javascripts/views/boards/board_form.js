@@ -1,5 +1,7 @@
 TrelloClone.Views.BoardForm = Backbone.View.extend({
   template: JST["boards/board_form"],
+  tagName: "li",
+  className: "board-item board-new",
 
   events: {
     "click div.screen": "index",
