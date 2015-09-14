@@ -5,7 +5,8 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
     "click li.new-list": "newList",
     "click h1.board-title": "editTitle",
     "click button.close-window": "clearEdit",
-    "click button.close-new-list": "closeList"
+    "click button.close-new-list": "closeList",
+    "click li.card": "showCard"
   },
 
   initialize: function () {
@@ -60,6 +61,14 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
     });
     this._listFormView = listFormView;
     this.addSubview(".board-lists", listFormView);
+  },
+
+  showCard: function (e) {
+    e.preventDefault();
+    var card = this.model.getCard($(e.currentTarget).data("id"));
+    
+    var cardDetail = new TrelloClone.Views.CardDetail({model: card});
+    this.addSubview(this.$el, cardDetail);
   },
 
   editTitle: function (e) {

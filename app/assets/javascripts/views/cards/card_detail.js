@@ -12,9 +12,5 @@ TrelloClone.Views.CardDetail = Backbone.View.extend({
     return this;
   },
 
-  show: function (e) {
-    e.preventDefault();
-    // NEED TO GET BOARD ID ONTO THE CARD
-    // Backbone.history.navigate("boards/" + this.model.get("list_id"), { trigger: true })
-  }
+
 })

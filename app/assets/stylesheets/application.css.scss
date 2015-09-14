@@ -369,3 +369,21 @@ div.modal {
   border: 2px solid black;
   border-radius: 10px;
 }
+
+button.delete {
+  padding: 10px;
+  margin: 5px;
+  background: red;
+  color: white;
+  border-radius: 3px;
+  box-shadow: none;
+  border: none;
+}
+
+button.delete:hover {
+  background: darkred;
+}
+
+button.delete-board {
+  float: right;
+}
