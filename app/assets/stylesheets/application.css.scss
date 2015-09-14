@@ -66,13 +66,34 @@ li.new-board {
 
 }
 
-div.board {
+div.board-wrap {
   margin: 20px 50px;
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
+}
+
+div.board-show {
+  margin-top: 50px;
+}
+
+nav.board-header {
+
+}
+
+h1.board-title {
+  color: white;
+  font-weight: bold;
+  display: inline;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+h1.board-title:hover {
+  cursor: pointer;
+  background: rgba(0,0,0,.3);
 }
 
 li.board-item:hover {
@@ -90,22 +111,31 @@ ul.board-lists {
 
 li.list{
   float: left;
-  margin: 0 10px;
+  margin: 0 5px;
   position: relative;
-  width: 300px;
+  width: 270px;
   display: inline-block;
-  border: 1px solid black;
+  // border: 1px solid black;
+  vertical-align: top;
   background: #eee;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 li.new-list{
-  background: #ccc;
+  color: rgba(255,255,255,.7);
+  background: rgba(0,0,0,.12);
+  border: none;
+  padding: 10px;
+}
+
+li.new-list:hover {
+  cursor: pointer;
+  background: rgba(0,0,0,.3);
 }
 
 li.card {
-  border: 1px white solid;
-  width: 280px;
+  // border: 1px white solid;
+  width: 250px;
   background: white;
   border-radius: 5px;
   margin: 10px auto;
