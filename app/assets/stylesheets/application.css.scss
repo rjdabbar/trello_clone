@@ -240,6 +240,7 @@ li.list > h1 {
   margin-left: 5px;
   font-weight: bold;
   padding: 5px;
+  display: inline-block;
 }
 
 li.new-list{
@@ -362,16 +363,17 @@ div.screen {
 
 div.modal {
   display: block;
-  background: #aaa;
+  background: #edeff0;
   width: 500px;
-  max-height: 500px;
-  margin: auto;
-  border: 2px solid black;
-  border-radius: 10px;
+  margin: 50px auto;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 3px;
+  padding: 10px;
 }
 
 button.delete {
-  padding: 10px;
+  padding: 5px 10px;
   margin: 5px;
   background: red;
   color: white;
@@ -386,4 +388,31 @@ button.delete:hover {
 
 button.delete-board {
   float: right;
+}
+button.delete-list {
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 5px;
+}
+
+div.modal > h1 {
+  margin: 5px 0;
+}
+
+p.card-description > textarea {
+  background: white;
+  resize: none;
+}
+
+p.card-description > button.card-description {
+  text-align: center;
+  color: white;
+  background: #61bd4f;
+  padding: 5px 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-left: 5px;
+  border: none;
+  box-shadow: none;
 }

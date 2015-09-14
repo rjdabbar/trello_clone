@@ -6,12 +6,14 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
     "click h1.board-title": "editTitle",
     "click button.close-window": "clearEdit",
     "click button.close-new-list": "closeList",
-    "click li.card": "showCard"
+    "click button.delete-board": "deleteBoard",
+    "click div.screen": "removeModal"
   },
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.lists(), "add", this.render);
+    this.listenTo(this.model.lists(), "add remove", this.render);
+    this.listenTo(this.model.lists(), "modal", this.openModal);
   },
 
   render: function () {
@@ -63,17 +65,15 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
     this.addSubview(".board-lists", listFormView);
   },
 
-  showCard: function (e) {
-    e.preventDefault();
-    var card = this.model.getCard($(e.currentTarget).data("id"));
-    
-    var cardDetail = new TrelloClone.Views.CardDetail({model: card});
-    this.addSubview(this.$el, cardDetail);
-  },
-
   editTitle: function (e) {
     e.preventDefault();
     this._$editBoard.toggle();
+  },
+
+  deleteBoard: function (e) {
+    e.preventDefault();
+    this.model.destroy();
+    Backbone.history.navigate("", {trigger: true});
   },
 
   clearEdit: function (e) {
@@ -85,5 +85,16 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
     e.preventDefault();
     this.removeSubview(".board-lists", this._listFormView);
     this.addNewList();
-  }
+  },
+
+  openModal: function (view) {
+    this.modalView = view;
+    this.addSubview(".board-wrap", view);
+  },
+
+  removeModal: function (e) {
+    e.preventDefault();
+    this.removeSubview(".board-wrap", this.modalView);
+  },
+
  })

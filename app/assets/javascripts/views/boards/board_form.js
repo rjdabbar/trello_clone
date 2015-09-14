@@ -12,6 +12,7 @@ TrelloClone.Views.BoardForm = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template({board: this.model}));
+    $("input").focus();
     return this;
   },
 

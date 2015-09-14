@@ -1,8 +1,11 @@
 <div class="screen">
 </div>
 <div class="modal">
-  <h1 class="card-header"><%= card.escape("title") %></h1>
+  <h1 class="card-header">Title: <%= card.escape("title") %></h1>
   <p class="card-description">
-    <%= card.escape("description") %>
+    <textarea name="card[description]"
+              rows="8"
+              cols="40"><%= card.escape("description") %></textarea>
+    <button class="card-description">Add Description</button>
   </p>
 </div>
