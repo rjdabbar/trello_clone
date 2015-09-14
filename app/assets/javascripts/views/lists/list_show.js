@@ -4,12 +4,15 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
   className: "list",
 
   events: {
-    "click li.new-card" : "newCard"
+    "click li.new-card" : "newCard",
+    "submit form.card-new": "submitCard",
+    "click button.close-new-card": "closeNew"
   },
 
   initialize: function (options) {
     this.board = options.board;
     this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model.cards(), "add", this.render)
   },
 
   render: function () {
@@ -38,11 +41,25 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
   newCard: function (e) {
     e.preventDefault();
     this.removeSubview(".list-cards", this._newCardView);
-    var card = new TrelloClone.Models.Card();
-    var newCardForm = new TrelloClone.Views.CardForm({
-      list: this.model,
-      model: card
-    });
-    this.addSubview(".list-cards", newCardForm);
+    var newCardFormView = new TrelloClone.Views.CardForm({});
+    this._newCardFormView = newCardFormView;
+    this.addSubview(".list-cards", newCardFormView);
+  },
+
+  submitCard: function (e) {
+    e.preventDefault();
+    var data = $(e.currentTarget).serializeJSON();
+    var card = new TrelloClone.Models.Card({list_id: this.model.id});
+    card.save(data.card, {
+      success: function (model, response, options) {
+        this.model.cards().add(card);
+      }.bind(this)
+    })
+  },
+
+  closeNew: function (e) {
+    e.preventDefault();
+    this.removeSubview(".list-cards", this._newCardFormView);
+    this.addNewCard();
   }
 })

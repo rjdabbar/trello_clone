@@ -13,7 +13,7 @@ TrelloClone.Views.CardForm = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({card: this.model}));
+    this.$el.html(this.template());
     $("textarea").focus();
     return this;
   },
