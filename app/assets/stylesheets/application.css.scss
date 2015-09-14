@@ -217,8 +217,6 @@ form.board-edit > button:hover {
   background: green;
 }
 
-
-
 ul.board-lists {
   margin: 30px auto;
   width: 2000px;
@@ -233,7 +231,6 @@ li.list{
   position: relative;
   width: 270px;
   display: inline-block;
-  // border: 1px solid black;
   vertical-align: top;
   background: #e2e4e6;
   border-radius: 4px;
@@ -257,10 +254,8 @@ li.new-list:hover {
   background: rgba(0,0,0,.3);
 }
 
-
-
 li.new-list-form {
-  background: rgba(0,0,0,.3);
+  background: #e2e4e6;
   padding: 10px;
 }
 
@@ -282,6 +277,14 @@ li.new-list-form > form > button.submit {
 
 li.new-list-form > form > button.submit:hover {
   background: green;
+}
+
+li.new-list-form > form > button.close-new-list {
+  background: transparent;
+  color: grey;
+  border: none;
+  box-shadow: none;
+  padding: 5px;
 }
 
 li.card {

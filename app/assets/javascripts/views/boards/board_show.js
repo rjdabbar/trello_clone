@@ -5,6 +5,7 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
     "click li.new-list": "newList",
     "click h1.board-title": "editTitle",
     "click button.close-window": "clearEdit",
+    "click button.close-new-list": "closeList"
   },
 
   initialize: function () {
@@ -57,6 +58,7 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
       model: list,
       board: this.model
     });
+    this._listFormView = listFormView;
     this.addSubview(".board-lists", listFormView);
   },
 
@@ -68,5 +70,11 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
   clearEdit: function (e) {
     e.preventDefault();
     this._$editBoard.toggle();
+  },
+
+  closeList: function (e) {
+    e.preventDefault();
+    this.removeSubview(".board-lists", this._listFormView);
+    this.addNewList();
   }
  })
