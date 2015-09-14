@@ -2,7 +2,7 @@ TrelloClone.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     this.boards = options.boards;
-    this.boards.fetch({reset: true});
+    this.boards.fetch();
   },
 
   routes: {

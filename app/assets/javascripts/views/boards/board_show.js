@@ -2,10 +2,15 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
   template: JST["boards/board_show"],
 
   events: {
-    "click li.new-list": "new"
+    "click li.new-list": "newList",
+    "click h1.board-title": "editTitle",
+    "click button.close-window": "clearEdit",
+    // "click div.board-wrap": "clearEdit"
   },
 
   initialize: function () {
+    console.log(this.model);
+    
     this.listenTo(this.model, "sync", this.render);
   },
 
@@ -14,6 +19,7 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
     this.addLists();
     this.addNewList();
     this.addHeader();
+    this.addEditBoard();
     return this;
   },
 
@@ -34,12 +40,27 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
   },
 
   addHeader: function () {
-    var headerView = new TrelloClone.Views.BoardHeader({model: this.model})
+    var headerView = new TrelloClone.Views.BoardHeader({model: this.model});
     this.addSubview(".board-show", headerView, true);
   },
 
-  new: function (e) {
+  addEditBoard: function () {
+    var editBoardView = new TrelloClone.Views.BoardEdit({model: this.model});
+    this.addSubview(".board-show", editBoardView)
+  },
+
+  newList: function (e) {
     e.preventDefault();
     Backbone.history.navigate("boards/" + this.model.id + "/lists/new", { trigger: true });
+  },
+
+  editTitle: function (e) {
+    e.preventDefault();
+    $("div.board-edit").toggle();
+  },
+
+  clearEdit: function (e) {
+    e.preventDefault();
+    $("div.board-edit").toggle();
   }
  })

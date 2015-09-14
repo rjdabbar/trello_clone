@@ -34,6 +34,10 @@ ul {
   list-style: none;
 }
 
+button {
+  outline: none;
+}
+
 body {
   background-color: rgb(0, 121, 191);
 }
@@ -51,7 +55,6 @@ ul.index-list {
 li.board-item {
   float: left;
   display: block;
-  border: 1px solid black;
   padding: 10px;
   background: grey;
   color: white;
@@ -96,6 +99,59 @@ h1.board-title:hover {
   background: rgba(0,0,0,.3);
 }
 
+div.board-edit {
+  display: none;
+  top: 85px;
+  width: 300px;
+  height: 150px;
+  position: absolute;
+  background: white;
+  color: black;
+  border-radius: 2px;
+}
+
+div.board-edit > h1 {
+  text-align: center;
+  margin-top: 5px;
+  color: #aaa;
+}
+
+div.board-edit > button.close-window {
+  background: white;
+  color: #aaa;
+  border: none;
+  box-shadow: none;
+  padding: 5px;
+  position: absolute;
+  top: 0px;
+  right: 5px;
+}
+
+div.board-edit form {
+  margin-left: 5px;
+}
+
+form.board-edit > input {
+  border-radius: 3px;
+  padding: 5px;
+}
+
+form.board-edit > button {
+  text-align: center;
+  color: white;
+  background: #61bd4f;
+  padding: 5px 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-left: 5px;
+  border: none;
+  box-shadow: none;
+}
+
+form.board-edit > button:hover {
+  background: green;
+}
+
 li.board-item:hover {
   background: green;
   cursor: pointer;
@@ -117,8 +173,14 @@ li.list{
   display: inline-block;
   // border: 1px solid black;
   vertical-align: top;
-  background: #eee;
+  background: #e2e4e6;
   border-radius: 4px;
+}
+
+li.list > h1 {
+  margin-left: 5px;
+  font-weight: bold;
+  padding: 5px;
 }
 
 li.new-list{
@@ -134,12 +196,18 @@ li.new-list:hover {
 }
 
 li.card {
-  // border: 1px white solid;
   width: 250px;
   background: white;
-  border-radius: 5px;
+  border-radius: 3px;
   margin: 10px auto;
-  padding: 5px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+li.card:hover {
+  cursor: pointer;
+  background: #edeff0;
+  border-bottom: 1px solid #aaa;
 }
 
 form.board {

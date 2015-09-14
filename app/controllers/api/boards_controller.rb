@@ -30,6 +30,15 @@ module Api
       end
     end
 
+    def update
+      @board = Board.find(params[:id])
+      if @board.update(board_params)
+        render :show
+      else
+
+      end
+    end
+
     private
 
     def board_params
