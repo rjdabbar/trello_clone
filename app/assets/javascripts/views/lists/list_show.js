@@ -4,7 +4,7 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
   className: "list",
 
   events: {
-    "click li.new-card" : "new"
+    "click li.new-card" : "newCard"
   },
 
   initialize: function (options) {
@@ -14,6 +14,12 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({list: this.model}));
+    this.addCards();
+    this.addNewCard();
+    return this;
+  },
+
+  addCards: function () {
     this.collection.each(function (card){
       var cardView = new TrelloClone.Views.CardShow({
         model: card,
@@ -21,13 +27,22 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
       });
       this.addSubview(".list-cards", cardView);
     }.bind(this))
-    var newCardView = new TrelloClone.Views.CardNew();
-    this.addSubview(".list-cards", newCardView);
-    return this;
   },
 
-  new: function (e) {
+  addNewCard: function () {
+    var newCardView = new TrelloClone.Views.CardNew();
+    this._newCardView = newCardView;
+    this.addSubview(".list-cards", newCardView);
+  },
+
+  newCard: function (e) {
     e.preventDefault();
-    Backbone.history.navigate("boards/" + this.board.id + "/lists/" + this.model.id + "/cards/new", {trigger: true})
+    this.removeSubview(".list-cards", this._newCardView);
+    var card = new TrelloClone.Models.Card();
+    var newCardForm = new TrelloClone.Views.CardForm({
+      list: this.model,
+      model: card
+    });
+    this.addSubview(".list-cards", newCardForm);
   }
 })

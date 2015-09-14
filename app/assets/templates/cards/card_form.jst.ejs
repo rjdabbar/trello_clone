@@ -1,19 +1,5 @@
-<div class="screen">
-
-</div>
-<div class="modal">
-  <form class="card" action="index.html" method="post">
-    <label for="card_title">Title: </label>
-    <input id="card_title"
-           type="text"
-           name="card[title]"
-           value="<%= card.escape("title") %>">
-    <br>
-    <label for="card_description">Description:</label>
-    <textarea id="card_description"
-              name="card[description]"
-              rows="8"
-              cols="40"></textarea>
-    <button class="submit">Create Card</button>
+  <form class="card-new" action="index.html" method="post">
+    <textarea name="card[title]" rows="4" cols="23"></textarea>
+    <button class="submit">Add</button>
+    <button class="close-new-card">X</button>
   </form>
-</div>

@@ -1,5 +1,7 @@
 TrelloClone.Views.CardForm = Backbone.View.extend({
   template: JST["cards/card_form"],
+  tagName: "li",
+  className: "card new-card-form",
 
   events: {
     "submit form.card": "submit",
@@ -7,11 +9,12 @@ TrelloClone.Views.CardForm = Backbone.View.extend({
   },
 
   initialize: function (options) {
-    this.board = options.board;
+    // this.board = options.board;
   },
 
   render: function () {
     this.$el.html(this.template({card: this.model}));
+    $("textarea").focus();
     return this;
   },
 

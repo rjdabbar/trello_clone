@@ -18,7 +18,7 @@
 @import "font-awesome";
 
 
-html, body, div, p, ul, li, main, section, article, h1, {
+html, body, div, p, ul, li, main, section, article, h1, textarea {
   border: 0;
   margin: 0;
   padding: 0;
@@ -270,6 +270,42 @@ li.card:hover {
   cursor: pointer;
   background: #edeff0;
   border-bottom: 1px solid #aaa;
+}
+
+li.new-card-form:hover {
+  cursor: auto;
+  background: white;
+}
+
+li.new-card-form > form > button.submit {
+  text-align: center;
+  color: white;
+  background: #61bd4f;
+  padding: 5px 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-left: 5px;
+  border: none;
+  box-shadow: none;
+}
+li.new-card-form > form > button.submit:hover {
+  background: green;
+}
+
+li.new-card-form > form > button.close-new-card {
+  text-align: center;
+  color: #aaa;
+  background: white;
+  padding: 5px;
+  margin-top: 10px;
+  border: none;
+  box-shadow: none;
+}
+
+li.new-card-form > form > textarea {
+  resize: none;
+  border-radius: 3px;
+  outline: none;
 }
 
 form.board {
