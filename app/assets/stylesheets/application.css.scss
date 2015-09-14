@@ -257,6 +257,33 @@ li.new-list:hover {
   background: rgba(0,0,0,.3);
 }
 
+
+
+li.new-list-form {
+  background: rgba(0,0,0,.3);
+  padding: 10px;
+}
+
+li.new-list-form > form > input{
+  border-radius: 3px;
+  box-shadow: inset 1px 1px 3px #999;
+}
+
+li.new-list-form > form > button.submit {
+  text-align: center;
+  color: white;
+  background: #61bd4f;
+  padding: 5px 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+  border: none;
+  box-shadow: none;
+}
+
+li.new-list-form > form > button.submit:hover {
+  background: green;
+}
+
 li.card {
   width: 250px;
   background: white;
@@ -313,10 +340,6 @@ form.board {
   text-align: center;
 }
 
-form.list {
-  margin: 50px;
-  text-align: center;
-}
 
 li.new-card:hover {
   cursor: pointer;
